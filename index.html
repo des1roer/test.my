@@ -16,63 +16,9 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>
-					<img data-src="data/index(part1)_page-0001.jpg">
-				</section>
-				<section>
-					<img data-src="data/index(part1)_page-0002.jpg">
-				</section>
-				<section>
-					<img data-src="data/index(part1)_page-0003.jpg">
-				</section>
-				<section>
-					<img data-src="data/index(part1)_page-0004.jpg">
-				</section>
-				<section>
-					<img data-src="data/index(part1)_page-0005.jpg">
-				</section>
-				<section>
-					<img data-src="data/index(part1)_page-0006.jpg">
-				</section>
-				<section>
-					<img data-src="data/index(part1)_page-0007.jpg">
-				</section>
-				<section>
-					<img data-src="data/index(part1)_page-0008.jpg">
-				</section>
-				<section>
-					<img data-src="data/index(part1)_page-0009.jpg">
-				</section>
-				<section>
-					<img data-src="data/index(part1)_page-0010.jpg">
-				</section>
-				<section>
-					<img data-src="data/index(part1)_page-0011.jpg">
-				</section>
-				<section>
-					<img data-src="data/index(part1)_page-0012.jpg">
-				</section>
-				<section>
-					<img data-src="data/index(part1)_page-0013.jpg">
-				</section>
-				<section><img data-src="data/index(part1)_page-0014.jpg"></section>
-				<section><img data-src="data/index(part1)_page-0015.jpg"></section>
-				<section><img data-src="data/index(part1)_page-0016.jpg"></section>
-				<section><img data-src="data/index(part1)_page-0017.jpg"></section>
-				<section><img data-src="data/index(part1)_page-0018.jpg"></section>
-				<section><img data-src="data/index(part1)_page-0019.jpg"></section>
-				<section><img data-src="data/index(part1)_page-0020.jpg"></section>
-				<section><img data-src="data/index(part1)_page-0021.jpg"></section>
-				<section><img data-src="data/index(part1)_page-0022.jpg"></section>
-				<section><img data-src="data/index(part1)_page-0023.jpg"></section>
-				<section><img data-src="data/index(part1)_page-0024.jpg"></section>
-				<section><img data-src="data/index(part1)_page-0025.jpg"></section>
-				<section><img data-src="data/index(part1)_page-0026.jpg"></section>
-				<section><img data-src="data/index(part1)_page-0027.jpg"></section>
-				<section><img data-src="data/index(part1)_page-0028.jpg"></section>
-				<section><img data-src="data/index(part1)_page-0029.jpg"></section>
-				<section><img data-src="data/index(part1)_page-0030.jpg"></section>
-				<section><img data-src="data/index(part1)_page-0031.jpg"></section>
+<!--				<section>-->
+<!--					welcome-->
+<!--				</section>-->
 			</div>
 		</div>
 
@@ -81,6 +27,8 @@
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
 		<script>
+			// addSlides();
+
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
@@ -90,6 +38,46 @@
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
+
+
+			// Функция для добавления слайдов
+			function addSlides() {
+				// Начальный номер страницы
+				let pageNumber = 1;
+
+				// Получаем контейнер для слайдов
+				const slidesContainer = document.querySelector('.slides');
+
+				// Цикл для создания слайдов
+				for (let i = 0; i < 31; i++) {
+					// Создаем новый элемент <section>
+					const section = document.createElement('section');
+
+					// Создаем элемент <img>
+					const img = document.createElement('img');
+
+					const formattedPageNumber = String(pageNumber).padStart(2, '0');
+
+					// Устанавливаем атрибут data-src
+					img.setAttribute('data-src', `data/index(part1)_page-00${formattedPageNumber}.jpg`);
+
+					// Добавляем изображение в секцию
+					section.appendChild(img);
+
+					// Добавляем секцию в контейнер слайдов
+					slidesContainer.appendChild(section);
+
+					// Увеличиваем номер страницы
+					pageNumber++;
+				}
+
+				// Синхронизация reveal.js после добавления слайдов
+				Reveal.sync();
+			}
+
+			// Вызываем функцию добавления слайдов после инициализации
+			addSlides();
+
 		</script>
 	</body>
 </html>
