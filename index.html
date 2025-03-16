@@ -48,6 +48,10 @@
 				// Получаем контейнер для слайдов
 				const slidesContainer = document.querySelector('.slides');
 
+				const urlParams = new URLSearchParams(window.location.search);
+				const dataFolder = urlParams.get('folder') || 'data'; // По умолчанию 'data', если параметр не указан
+				console.log(dataFolder)
+
 				// Цикл для создания слайдов
 				for (let i = 0; i < 31; i++) {
 					// Создаем новый элемент <section>
@@ -70,9 +74,6 @@
 					// Увеличиваем номер страницы
 					pageNumber++;
 				}
-
-				// Синхронизация reveal.js после добавления слайдов
-				Reveal.sync();
 			}
 
 			// Вызываем функцию добавления слайдов после инициализации
